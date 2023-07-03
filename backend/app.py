@@ -25,4 +25,4 @@ def post_sentiment():
     return jsonify({'message': 'succesfully posted to cloudant', "text": request.json['text'], "sentiment": blob.polarity }), 201
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(port=3000, host='0.0.0.0')

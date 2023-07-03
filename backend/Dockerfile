@@ -1,5 +1,5 @@
 # set base image (host OS)
-FROM python:3.7
+FROM --platform=linux/amd64 python:3.7
 
 
 # set the working directory in the container
@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # command to run on container start
-CMD [ "python3", "./app.py" ]
+CMD [ "python", "./app.py" ]

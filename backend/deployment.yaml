@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: senti
-        image: s4saif/senti:v21
+        image: s4saif/senti:v28
         env:
           - name: username
             valueFrom:
@@ -29,4 +29,4 @@ spec:
                 name: secret
                 key: password
         ports:
-        - containerPort: 8080
+        - containerPort: 3000

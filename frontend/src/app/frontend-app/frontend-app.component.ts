@@ -19,7 +19,7 @@ export class FrontendAppComponent {
     this.apiText='';
     this.apiSentimentNum='';
     // Simple POST request with a JSON body and response type <any>
-    this.http.post<any>('<ADD-BACKEND-URL-HERE>'+'/api/post_sentiment', { text: this.Sentence.value }).subscribe(data => {
+    this.http.post<any>('http://senti-sentiment.apps.cluster-msntc.msntc.sandbox2813.opentlc.com'+'/api/post_sentiment', { text: this.Sentence.value }).subscribe(data => {
       this.apiSentimentNum = data.sentiment;
       this.apiText = data.text;
     // the following code specifies the range of each sentiment which its value is min=-1 and max=1, can be customized
