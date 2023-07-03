@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: senti
+  labels:
+    app: senti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: senti
+  template:
+    metadata:
+      labels:
+        app: senti
+    spec:
+      containers:
+      - name: senti
+        image: s4saif/senti:v21
+        env:
+          - name: username
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: username
+          - name: password
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: password
+        ports:
+        - containerPort: 8080

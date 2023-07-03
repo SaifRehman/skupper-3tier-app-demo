@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sentiment 
+spec:
+  template:
+    spec:
+      containers:
+        - image: s4saif/senti:v7
+          env:
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: password
